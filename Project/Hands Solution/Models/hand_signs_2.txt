@@ -1,0 +1,18 @@
+model = Sequential()
+model.add(LSTM(100, return_sequences=True, activation = 'relu', input_shape= (40, 84)))
+model.add(Dropout(0.4))
+model.add(LSTM(150, return_sequences=False, activation = 'relu'))
+model.add(Dropout(0.4))
+model.add(Dense(100, activation = 'relu'))
+model.add(Dropout(0.4))
+model.add(Dense(100, activation = 'relu'))
+model.add(Dense(50, activation = 'relu'))
+model.add(Dense(actions.shape[0], activation = 'softmax'))
+
+model.compile(optimizer = 'Adam', loss = 'categorical_crossentropy', metrics = ['categorical_accuracy', 'accuracy'])
+
+epochs, batch_size = 500, 63
+#epochs = 1000
+
+model.fit(X_train, y_train, epochs = epochs, batch_size = batch_size, validation_split=0.13, callbacks =[tb_callbacks])
+#model.fit(X_train, y_train, epochs = epochs, validation_split=0.13, callbacks =[tb_callbacks])
