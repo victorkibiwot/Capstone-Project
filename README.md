@@ -1,2 +1,2 @@
 # Capstone-Project
-Behold, my capstone project during my undergraduate studies
+Behold, my capstone project during my undergraduate studies. The idea was to build a sign language translator using MediaPipe Package. The prototype model was trained to classify just 21-23 signs found in the labels file. The training was done in google collab and the final model exported in tflite format for deployment in any mobile application that might requires it. The neural network used to train it is the Long Short Term Neural Network due to its ability to model sequence data and ability to learn long term-dependencies between time steps of data.  
